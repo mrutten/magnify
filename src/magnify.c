@@ -38,7 +38,8 @@ Window target;
 
 uint8_t image_data[box_size * box_size * 4];
 
-void put_image(void) {
+void put_image(void) 
+{
     int lx = x;
     int ly = y;
 
@@ -88,7 +89,8 @@ void put_image(void) {
     XDestroyImage(img);
 }
 
-int main(void) {
+int main(void) 
+{
     if ((display = XOpenDisplay(NULL)) == NULL) {
         printf("Can't open display...\n");
         return -1;
