@@ -2,24 +2,33 @@
 
 ## Getting started
 
-Magnify is a lightweight screen magnifier that runs on Void Linux with i3WM, 
-so on a minimal X11 system with an X server that doesn’t coalesce motion events 
-aggressively.
+I had need for a screen magnifier, but all available screen magnifiers on 
+Linux needed dozens of dependencies met in order to work, so I wrote my own, 
+with the added benefit of exploring the Xlib library.
+
+This resulted is Magnify, a lightweight screen magnifier that runs well on my 
+current setup of Void Linux with i3.
+It runs on a minimal X11 system with an X server that doesn’t coalesce motion 
+events aggressively, so it won't eat up unneccessary CPU cycles.
 
 ## Installation
 
-Compile the binary by running `make`, then run `bin/magnify` or copy the binary 
-to a directory in PATH.
+```bash
+make
+sudo make install
+```
 
-Run `make help` to get help on the make options.
-Clang utils and Valgrind may have to be installed for all options to work.
+## Help
+
+Run `make help` to get a list of individual make options.
+Clang utils and Valgrind may have to be installed for debugging options to work.
 
 ## Usage
 
-Run the binary and move the mouse over the region to magnify, or use hjkl keys 
+Move the mouse over the screen region to magnify, or use hjkl keys 
 to move around. Press q to quit the application.
 
 ## License
 
-Distributed under the MIT license. Read LICENSE.txt for more information.
+Distributed under the MIT license. Read LICENSE.txt for detailed information.
 
