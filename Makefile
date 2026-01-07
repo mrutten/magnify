@@ -78,5 +78,5 @@ tidy:
 
 valgrind: all
 	@echo "Running Valgrind Dynamic Analyzer / Runtime Checker"
-	@$(VALGRIND) --leak-check=full --track-origins=yes $(BINDIR)$(BINARY)
+	@$(VALGRIND) --leak-check=full --track-origins=yes $(BIN_DIR)$(BINARY)
 
