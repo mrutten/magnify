@@ -6,7 +6,7 @@ I had need for a screen magnifier, but all available screen magnifiers on
 Linux needed dozens of dependencies met in order to work, so I wrote my own, 
 with the added benefit of exploring the Xlib library.
 
-This resulted is Magnify, a lightweight screen magnifier that runs well on my 
+This resulted in Magnify, a lightweight screen magnifier that runs well on my 
 current setup of Void Linux with i3.
 It runs on a minimal X11 system with an X server that doesn’t coalesce motion 
 events aggressively, so it won't eat up unneccessary CPU cycles.
