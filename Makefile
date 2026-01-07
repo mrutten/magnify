@@ -46,7 +46,7 @@ debug: create_dirs clean
 
 format:
 	@echo "Running clang-format"
-	@$(FORMAT) -i $(SRCS) -style="{BasedOnStyle: LLVM, IndentWidth: 4}"
+	@$(FORMAT) -i -style=file $(SRCS)
 
 help:
 	@echo "Usage:"
