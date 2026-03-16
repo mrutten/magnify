@@ -2,7 +2,10 @@ BIN_DIR := bin/
 BINARY := magnify
 INSTALL_DIR = /usr/local/bin/
 
-SRCS := $(wildcard src/*.c)
+SRC_DIR := src
+SRCS := magnify.c
+SRC_FILES := $(addprefix $(SRC_DIR)/,$(SRCS))
+
 INCLUDES := -Iinclude
 
 # Flags
@@ -28,8 +31,8 @@ clean:
 
 compile: create_dirs clean
 	@clear
-	@echo "Compiling $(SRCS)"
-	@$(CC) $(CFLAGS) $(LFLAGS) -o $(BIN_DIR)$(BINARY) $(SRCS)
+	@echo "Compiling $(SRC_FILES)"
+	@$(CC) $(CFLAGS) $(LFLAGS) -o $(BIN_DIR)$(BINARY) $(SRC_FILES)
 	@echo "Build of $(BIN_DIR)$(BINARY) complete"
 	@echo "--------------------------------------------------------------------------------"
 
@@ -39,14 +42,14 @@ create_dirs:
 
 debug: create_dirs clean
 	@clear
-	@echo "Compiling $(SRCS) with debug symbols"
-	@$(CC) $(CFLAGS) $(DEBUG) $(LFLAGS) -o $(BIN_DIR)$(BINARY) $(SRCS)
+	@echo "Compiling $(SRC_FILES) with debug symbols"
+	@$(CC) $(CFLAGS) $(DEBUG) $(LFLAGS) -o $(BIN_DIR)$(BINARY) $(SRC_FILES)
 	@echo "Build of $(BIN_DIR)$(BINARY) complete"
 	@echo "--------------------------------------------------------------------------------"
 
 format:
 	@echo "Running clang-format"
-	@$(FORMAT) -i -style=file $(SRCS)
+	@$(FORMAT) -i -style=file $(SRC_FILES)
 
 help:
 	@echo "Usage:"
@@ -74,7 +77,7 @@ run: all
 
 tidy:
 	@echo "Running clang-tidy"
-	@$(TIDY) $(SRCS) -- $(CFLAGS)
+	@$(TIDY) $(SRC_FILES) -- $(CFLAGS)
 
 valgrind: all
 	@echo "Running Valgrind Dynamic Analyzer / Runtime Checker"
